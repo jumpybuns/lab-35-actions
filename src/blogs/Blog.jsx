@@ -13,7 +13,6 @@ const Blog = ({ title, body }) => {
     <>
       <dl>
         <dd>{title}</dd>
-
         <dd>{body}</dd>
       </dl>
 
