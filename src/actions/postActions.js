@@ -1,5 +1,5 @@
 export const CREATE_BLOG = 'CREATE_BLOG';
-export const createPost = (blog) => ({
+export const createBlog = (blog) => ({
   type: CREATE_BLOG,
   payload: blog,
 });

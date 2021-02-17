@@ -1,6 +1,6 @@
-import React, { useState } from '../../actions/dogActions';
-import { createBlog } from '../../actions/blogActions';
-import { useDispatch } from '../../state/BlogProvider';
+import React, { useState } from 'react';
+import { createBlog } from '../actions/postActions';
+import { useDispatch } from '../state/BlogProvider';
 
 const BlogForm = () => {
   const dispatch = useDispatch();
@@ -33,4 +33,4 @@ const BlogForm = () => {
   );
 };
 
-export default BlogForms;
+export default BlogForm;
