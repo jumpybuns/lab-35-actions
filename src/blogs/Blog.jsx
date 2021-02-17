@@ -12,10 +12,8 @@ const Blog = ({ title, body }) => {
   return (
     <>
       <dl>
-        <dt>Title</dt>
         <dd>{title}</dd>
 
-        <dt>Body</dt>
         <dd>{body}</dd>
       </dl>
 

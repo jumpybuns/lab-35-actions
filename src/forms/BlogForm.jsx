@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createBlog } from '../actions/blogActions';
 import { useDispatch } from '../state/BlogProvider';
+import styles from './BlogForm.css';
 
 const BlogForm = () => {
   const dispatch = useDispatch();
@@ -15,21 +16,29 @@ const BlogForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Title"
-        value={title}
-        onChange={({ target }) => setTitle(target.value)}
-      />
+    <>
+      <h1 className={styles.title}>Create Post</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          className={styles.input}
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={({ target }) => setTitle(target.value)}
+        />
 
-      <input
-        type="text"
-        placeholder="Body"
-        value={body}
-        onChange={({ target }) => setBody(target.value)}
-      />
-    </form>
+        <textarea
+          className={styles.textarea}
+          type="text"
+          placeholder="Body"
+          value={body}
+          onChange={({ target }) => setBody(target.value)}
+        ></textarea>
+        <button className={styles.submit} onSubmit={handleSubmit}>
+          Submit
+        </button>
+      </form>
+    </>
   );
 };
 
