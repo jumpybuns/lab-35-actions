@@ -1,15 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from '../state/BlogProvider';
+import { deleteBlog } from '../actions/blogActions';
 
 const Blog = ({ title, body }) => {
-  return (
-    <dl>
-      <dt>Title</dt>
-      <dd>{title}</dd>
+  const dispatch = useDispatch();
 
-      <dt>Body</dt>
-      <dd>{body}</dd>
-    </dl>
+  const handleClick = () => {
+    dispatch(deleteBlog(title));
+  };
+  return (
+    <>
+      <dl>
+        <dt>Title</dt>
+        <dd>{title}</dd>
+
+        <dt>Body</dt>
+        <dd>{body}</dd>
+      </dl>
+
+      <button onClick={handleClick}>Delete</button>
+    </>
   );
 };
 
