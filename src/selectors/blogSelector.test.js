@@ -10,4 +10,14 @@ describe('test selectors', () => {
 
     expect(selector).toEqual([{ title: 'title', body: 'body' }]);
   });
+
+  it('counts blog from state', () => {
+    const state = {
+      blogs: [{ title: 'title', body: 'body' }],
+    };
+
+    const selector = countBlogs(state);
+
+    expect(selector).toEqual(1);
+  });
 });
