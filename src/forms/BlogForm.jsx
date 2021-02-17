@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createBlog } from '../actions/postActions';
+import { createBlog } from '../actions/blogActions';
 import { useDispatch } from '../state/BlogProvider';
 
 const BlogForm = () => {

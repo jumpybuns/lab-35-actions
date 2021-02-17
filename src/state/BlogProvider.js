@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import reducer, { initialState } from '../reducers/postReducer';
+import reducer, { initialState } from '../reducers/blogReducer';
 
 const BlogContext = createContext(null);
 

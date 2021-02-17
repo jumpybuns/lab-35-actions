@@ -1,4 +1,4 @@
-import { CREATE_BLOG, DELETE_BLOG } from '../actions/postActions';
+import { CREATE_BLOG, DELETE_BLOG } from '../actions/blogActions';
 
 export const initialState = {
   blogs: [],
