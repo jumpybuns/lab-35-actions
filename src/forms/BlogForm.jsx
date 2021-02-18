@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createBlog, updateBlog } from '../actions/blogActions';
+import { createBlog } from '../actions/blogActions';
 import { useDispatch } from '../state/BlogProvider';
 import styles from './BlogForm.css';
 
@@ -13,12 +13,6 @@ const BlogForm = () => {
     e.preventDefault();
 
     dispatch(createBlog({ title, body }));
-  };
-
-  const handleUpdate = (e) => {
-    e.preventDefault();
-
-    dispatch(updateBlog({ body }));
   };
 
   return (

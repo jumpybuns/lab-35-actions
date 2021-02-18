@@ -20,7 +20,7 @@ describe('comment actions', () => {
 
     expect(action).toEqual({
       type: DELETE_COMMENT,
-      payload: { index: 0, commentIndex: 'comment' },
+      payload: { index: 0, comment: 'comment' },
     });
   });
 });

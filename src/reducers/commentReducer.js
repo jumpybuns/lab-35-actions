@@ -18,7 +18,7 @@ export default function reducer(state = initialState, action) {
     case DELETE_COMMENT:
       return {
         ...state,
-        list: list.filter((list) => list.commentIndex !== action.payload),
+        list: list.filter((list) => list !== action.payload),
       };
     default:
       return state;
