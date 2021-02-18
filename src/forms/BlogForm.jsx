@@ -15,10 +15,16 @@ const BlogForm = () => {
     dispatch(createBlog({ title, body }));
   };
 
+  const handleUpdate = (e) => {
+    e.preventDefault();
+
+    dispatch(createBlog({ title, body }));
+  };
+
   return (
     <>
       <h1 className={styles.title}>Create Post</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(handleSubmit, handleUpdate)}>
         <input
           className={styles.input}
           type="text"
@@ -36,6 +42,9 @@ const BlogForm = () => {
         ></textarea>
         <button className={styles.submit} onSubmit={handleSubmit}>
           Submit
+        </button>
+        <button className={styles.submit} onSubmit={handleUpdate}>
+          Update
         </button>
       </form>
     </>

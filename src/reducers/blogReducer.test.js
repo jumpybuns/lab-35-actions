@@ -1,4 +1,4 @@
-import { createBlog, deleteBlog } from '../actions/blogActions';
+import { createBlog, deleteBlog, updateBlog } from '../actions/blogActions';
 import reducer from '../reducers/blogReducer';
 
 describe('blog reducer test', () => {
@@ -29,5 +29,15 @@ describe('blog reducer test', () => {
     expect(reducer(state, action)).toEqual({
       blogs: [],
     });
+  });
+
+  it('updates a blog with UPDATE_BLOG action', () => {
+    const state = {
+      blogs: [{ title: 'title', body: 'body' }],
+    };
+
+    const action = updateBlog('index');
+
+    expect(action);
   });
 });
