@@ -1,0 +1,18 @@
+import { setComment, deleteComment } from '../actions/commentActions';
+import reducer from '../reducers/commentReducer';
+
+describe('comment reducer test', () => {
+  it('add a comment with SET_COMMENT', () => {
+    const state = {
+      list: Array(10).fill(null),
+    };
+
+    const action = setComment(4, 'comment');
+
+    const newState = reducer(state, action);
+
+    expect(newState).toEqual({
+      list: [null, null, null, null, 'comment', null, null, null, null, null],
+    });
+  });
+});

@@ -3,8 +3,6 @@ import {
   CREATE_BLOG,
   deleteBlog,
   DELETE_BLOG,
-  setComment,
-  SET_COMMENT,
 } from './blogActions';
 
 describe('blog action jacksons', () => {
@@ -29,15 +27,6 @@ describe('blog action jacksons', () => {
     expect(action2).toEqual({
       type: DELETE_BLOG,
       payload: { title: 'title', body: 'body' },
-    });
-  });
-
-  it('creates a comment using SET_COMMENT', () => {
-    const action = setComment(0, 'comment');
-
-    expect(action).toEqual({
-      type: SET_COMMENT,
-      payload: { index: 0, comment: 'comment' },
     });
   });
 });
