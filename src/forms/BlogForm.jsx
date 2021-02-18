@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createBlog } from '../actions/blogActions';
+import { createBlog, updateBlog } from '../actions/blogActions';
 import { useDispatch } from '../state/BlogProvider';
 import styles from './BlogForm.css';
 
@@ -18,13 +18,13 @@ const BlogForm = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
 
-    dispatch(createBlog({ title, body }));
+    dispatch(updateBlog({ body }));
   };
 
   return (
     <>
       <h1 className={styles.title}>Create Post</h1>
-      <form onSubmit={(handleSubmit, handleUpdate)}>
+      <form onSubmit={handleSubmit}>
         <input
           className={styles.input}
           type="text"
@@ -42,9 +42,6 @@ const BlogForm = () => {
         ></textarea>
         <button className={styles.submit} onSubmit={handleSubmit}>
           Submit
-        </button>
-        <button className={styles.submit} onSubmit={handleUpdate}>
-          Update
         </button>
       </form>
     </>
