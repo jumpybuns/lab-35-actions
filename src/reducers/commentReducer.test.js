@@ -15,4 +15,16 @@ describe('comment reducer test', () => {
       list: [null, null, null, null, 'comment', null, null, null, null, null],
     });
   });
+
+  it('delete a comment with DELETE_COMMENT', () => {
+    const state = {
+      list: Array(10).fill(null),
+    };
+
+    const action = deleteComment('comment');
+
+    expect(reducer(state, action)).toEqual({
+      list: [null, null, null, null, null, null, null, null, null, null],
+    });
+  });
 });

@@ -6,22 +6,23 @@ export const initialState = {
 };
 
 export default function reducer(state, action) {
+  const { blogs, updatedBlogs } = state;
   switch (action.type) {
     case CREATE_BLOG:
       return {
         ...state,
-        blogs: [...state.blogs, action.payload],
+        blogs: [...blogs, action.payload],
       };
     case DELETE_BLOG:
       return {
         ...state,
-        blogs: state.blogs.filter((blog) => blog.title !== action.payload),
+        blogs: blogs.filter((blog) => blog.title !== action.payload),
       };
     case UPDATE_BLOG:
       return {
         ...state,
-        blogs: [...state.blogs, action.payload],
-        updatedBlogs: state.blogs.filter(
+        blogs: [...blogs, action.payload],
+        updatedBlogs: updatedBlogs.filter(
           (blog) => blog.title == action.payload
         ),
       };
