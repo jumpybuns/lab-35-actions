@@ -11,6 +11,7 @@ const Post = ({ title, body }) => {
 
     dispatch(deletePost(title));
   };
+
   return (
     <>
       <h1>{title}</h1>
