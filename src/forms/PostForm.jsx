@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { createBlog } from '../actions/blogActions';
-import { useDispatch } from '../state/BlogProvider';
-import styles from './BlogForm.css';
+import { createPost } from '../actions/postActions';
+import { useDispatch } from 'react-redux';
+import styles from './PostForm.css';
 
-const BlogForm = () => {
+const PostForm = () => {
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState('');
@@ -11,8 +11,9 @@ const BlogForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    dispatch(createBlog({ title, body }));
+    dispatch(createPost({ title, body }));
+    setTitle('');
+    setBody('');
   };
 
   return (
@@ -42,4 +43,4 @@ const BlogForm = () => {
   );
 };
 
-export default BlogForm;
+export default PostForm;

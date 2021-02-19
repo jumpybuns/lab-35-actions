@@ -1,8 +1,9 @@
-import React, { createContext, useContext, useReducer } from 'react';
-import reducer, { initialState } from '../reducers/blogReducer';
+import React, { createContext, useReducer, useContext } from 'react';
+import reducer, { initialState } from '../reducers/postReducer';
 
 const BlogContext = createContext(null);
 
+// eslint-disable-next-line react/prop-types
 export const BlogProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -13,13 +14,14 @@ export const BlogProvider = ({ children }) => {
   );
 };
 
-export const useSelector = (selectorFn) => {
-  const { state } = useContext(BlogContext);
-
-  return selectorFn(state);
-};
-
 export const useDispatch = () => {
   const { dispatch } = useContext(BlogContext);
+
   return dispatch;
+};
+
+export const useSelector = (selectorFunction) => {
+  const { state } = useContext(BlogContext);
+
+  return selectorFunction(state);
 };
