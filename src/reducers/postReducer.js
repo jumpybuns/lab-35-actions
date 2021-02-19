@@ -2,6 +2,7 @@ import { CREATE_POST, DELETE_POST } from '../actions/postActions';
 
 export const initialState = {
   posts: [],
+  postId: 1,
 };
 
 export default function postReducer(state = initialState, action) {
