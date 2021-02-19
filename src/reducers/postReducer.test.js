@@ -24,10 +24,10 @@ describe('Post Reducer', () => {
   // eslint-disable-next-line max-len
   it('Deletes a post using DELETE_POST action in postReducer', () => {
     const state = {
-      posts: dummyPost,
+      posts: [dummyPost],
     };
 
-    const action = deletePost(dummyPost.postId);
+    const action = deletePost(dummyPost.title);
 
     const newState = postReducer(state, action);
 
