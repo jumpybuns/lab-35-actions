@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteBlog } from '../actions/blogActions';
-import { setComment } from '../actions/commentActions';
+import CommentForm from '../forms/CommentForm';
+import { createComment } from '../actions/commentActions';
 
 const Blog = ({ title, body, comments, index }) => {
   const dispatch = useDispatch();
-  const [selectComment, setSelectComment] = useState('');
-
+  const [selectedComment, setSelectedComment] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(setComment(index, selectComment));
+    dispatch(createComment(index, selectedComment));
   };
 
   const handleClick = (e) => {
@@ -30,11 +30,12 @@ const Blog = ({ title, body, comments, index }) => {
             name="comments"
             type="text"
             value={comments}
-            onChange={({ target }) => setSelectComment(target.value)}
+            onChange={({ target }) => setSelectedComment(target.value)}
           />
           <label htmlFor={comment}>{comment}</label>
         </>
       ))}
+      <CommentForm />
       <button onSubmit={handleSubmit}>Submit</button>
       <button onClick={handleClick}>Delete</button>
     </form>

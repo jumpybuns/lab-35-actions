@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createComment } from '../actions/commentActions';
-import { useDispatch } from '../state/CommentProvider';
+import { useDispatch } from 'react-redux';
 
 const CommentForm = () => {
   const dispatch = useDispatch();

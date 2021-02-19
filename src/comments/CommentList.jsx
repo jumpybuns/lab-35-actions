@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from '../state/CommentProvider';
+import { useSelector } from 'react-redux';
 import { getComments } from '../selectors/commentSelector';
 import Comment from './Comment';
 

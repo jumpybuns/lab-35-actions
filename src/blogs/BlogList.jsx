@@ -1,14 +1,14 @@
 import React from 'react';
-import { useSelector } from '../state/BlogProvider';
-import { getBlogs } from '../selectors/blogSelectors';
+import { useSelector } from 'react-redux';
+import { countBlogs } from '../selectors/blogSelectors';
 import Blog from './Blog';
 
 const BlogList = () => {
-  const blogs = useSelector(getBlogs);
+  const blogs = useSelector(countBlogs);
 
-  const blogElements = blogs.map((blog) => (
+  const blogElements = blogs.map((blog, i) => (
     <li key={blog.title}>
-      <Blog {...blog} />
+      <Blog {...blog} index={i} />
     </li>
   ));
 

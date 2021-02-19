@@ -1,2 +1,6 @@
-export const getBlogs = (state) => state.blogs;
-export const countBlogs = (state) => getBlogs(state).length;
+export const getBlogs = (state) => state.blogs.blogs;
+export const countBlogs = (state) =>
+  getBlogs(state).map((blog) => ({
+    title: blog.title,
+    comments: blog.comment,
+  }));

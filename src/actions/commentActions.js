@@ -1,6 +1,6 @@
-export const SET_COMMENT = 'SET_COMMENT';
-export const setComment = (index, comment) => ({
-  type: SET_COMMENT,
+export const CREATE_COMMENT = 'CREATE_COMMENT';
+export const createComment = (index, comment) => ({
+  type: CREATE_COMMENT,
   payload: { index, comment },
 });
 

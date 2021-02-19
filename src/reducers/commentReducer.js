@@ -1,16 +1,16 @@
-import { SET_COMMENT, DELETE_COMMENT } from '../actions/commentActions';
+import { CREATE_COMMENT, DELETE_COMMENT } from '../actions/commentActions';
 
 const initialState = {
-  list: [],
+  commentsList: [],
 };
 
-export default function reducer(state = initialState, action) {
-  const { list } = state;
+export default function commentReducer(state = initialState, action) {
+  const { commentsList } = state;
   switch (action.type) {
-    case SET_COMMENT:
+    case CREATE_COMMENT:
       return {
         ...state,
-        list: list.map((comment, i) => {
+        commentsList: commentsList.map((comment, i) => {
           if (i === action.payload.index) return action.payload.comment;
           return comment;
         }),
@@ -18,7 +18,9 @@ export default function reducer(state = initialState, action) {
     case DELETE_COMMENT:
       return {
         ...state,
-        list: list.filter((list) => list !== action.payload),
+        commentsList: commentsList.filter(
+          (commentList) => commentList !== action.payload
+        ),
       };
     default:
       return state;
