@@ -3,11 +3,15 @@ import { useSelector } from 'react-redux';
 import { getComments } from '../selectors/commentSelector';
 import Comment from './Comment';
 
-const CommentList = () => {
-  const comments = useSelector(getComments);
+const CommentList = ({ postId }) => {
+  const allComments = useSelector(getComments);
 
-  const commentElements = comments.map((comment) => (
-    <li key={comment.comment}>
+  const displayComments = allComments.filter(
+    (comment) => comment.postId === postId
+  );
+
+  const commentElements = displayComments.map((comment, index) => (
+    <li key={index}>
       <Comment {...comment} />
     </li>
   ));
