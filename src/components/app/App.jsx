@@ -1,6 +1,6 @@
 import React from 'react';
-import CommentForm from '../../forms/CommentForm';
-import PostForm from '../../forms/PostForm';
+import CommentPage from '../../pages/CommentPage';
+import PostPage from '../../pages/PostPage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 export default function App() {
@@ -11,7 +11,7 @@ export default function App() {
           <Route
             exact
             path="/"
-            render={(routerProps) => <PostForm {...routerProps} />}
+            render={(routerProps) => <PostPage {...routerProps} />}
           />
           <Route
             path="/post/:id"
