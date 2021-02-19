@@ -5,12 +5,12 @@ describe('Blog Selectors', () => {
     const state = {
       posts: [
         {
-          title: 'Wednesday Post',
-          body: 'Dear Diary, today is Wednesday.',
+          title: 'title Post',
+          body: 'body',
         },
         {
-          title: 'Tuesday Post',
-          body: 'Dear Diary, yesterday was Tuesday.',
+          title: 'title Post2',
+          body: 'body2',
         },
       ],
     };
@@ -19,12 +19,12 @@ describe('Blog Selectors', () => {
 
     expect(posts).toEqual([
       {
-        title: 'Wednesday Post',
-        body: 'Dear Diary, today is Wednesday.',
+        title: 'title Post',
+        body: 'body',
       },
       {
-        title: 'Tuesday Post',
-        body: 'Dear Diary, yesterday was Tuesday.',
+        title: 'title Post2',
+        body: 'body2',
       },
     ]);
   });

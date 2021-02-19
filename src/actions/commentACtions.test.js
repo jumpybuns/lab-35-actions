@@ -7,20 +7,20 @@ import {
 
 describe('comment actions', () => {
   it('creates a comment using CREATE_COMMENT', () => {
-    const action = createComment(0, 'comment');
+    const action = createComment({ id: 1, comment: 'comment' });
 
     expect(action).toEqual({
       type: CREATE_COMMENT,
-      payload: { postIndex: 0, commentText: 'comment' },
+      payload: { id: 1, comment: 'comment' },
     });
   });
 
   it('deletes a comment using DELETE_COMMENT', () => {
-    const action = deleteComment(0, 'comment');
+    const action = deleteComment({ id: 1, comment: 'comment' });
 
     expect(action).toEqual({
       type: DELETE_COMMENT,
-      payload: { postIndex: 0, commentText: 'comment' },
+      payload: { id: 1, comment: 'comment' },
     });
   });
 });
