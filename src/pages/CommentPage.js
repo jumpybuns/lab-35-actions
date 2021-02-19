@@ -17,7 +17,7 @@ export default function CommentPage(props) {
     <>
       <Post {...displayPost[0]} />
       <CommentForm postId={postId} />
-      <CommentList psotId={postId} />
+      <CommentList postId={postId} />
     </>
   );
 }
