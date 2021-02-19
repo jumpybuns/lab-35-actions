@@ -1,40 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteComment } from '../actions/commentActions';
-import { setComment } from '../actions/commentActions';
-import { getComments } from '../selectors/commentSelector';
 
-const Comment = ({ index, comment }) => {
+const Comment = ({ text, commentId }) => {
   const dispatch = useDispatch();
-  const [selectComment, setSelectComment] = useState('');
-  const allComments = useSelector(getComments);
+
   const handleClick = () => {
-    dispatch(deleteComment(index));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    dispatch(setComment(index, selectComment));
+    dispatch(deleteComment(commentId));
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <>
-        <dl>
-          <dd>{comment}</dd>
-        </dl>
-        <button onSubmit={handleSubmit}>Submit</button>
-        <button onClick={handleClick}>Delete</button>
-      </>
-    </form>
+    <>
+      <dl>
+        <dd>{text}</dd>
+      </dl>
+      <button onClick={handleClick}>Delete</button>
+    </>
   );
 };
 
 Comment.propTypes = {
-  index: PropTypes.number.isRequired,
-  comment: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  commentId: PropTypes.number.isRequired,
 };
 
 export default Comment;

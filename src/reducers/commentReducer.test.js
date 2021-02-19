@@ -1,45 +1,38 @@
-import { createPost, deletePost } from '../actions/postActions';
-import postReducer from './postReducer';
+import { createComment, deleteComment } from '../actions/commentActions';
+import commentReducer from './commentReducer';
 
-describe('Post Reducer', () => {
-  it('Creates a post using CREATE_POST action in postReducer', () => {
+const commentDummy = {
+  text: 'fdfd',
+  commentId: 1,
+  postId: 5,
+};
+
+describe('Comment Reducer', () => {
+  it('Creates a comment using CREATE_COMMENT action in commentReducer', () => {
     const state = {
-      posts: [],
+      comments: [],
     };
 
-    const action = createPost({
-      title: 'Wednesday Post',
-      body: 'Dear Diary, today is Wednesday.',
-    });
+    const action = createComment(commentDummy);
 
-    const newState = postReducer(state, action);
+    const newState = commentReducer(state, action);
 
     expect(newState).toEqual({
-      posts: [
-        {
-          title: 'Wednesday Post',
-          body: 'Dear Diary, today is Wednesday.',
-        },
-      ],
+      comments: [commentDummy],
     });
   });
 
-  it('Deletes a post using DELETE_POST action in postReducer', () => {
+  it('Deletes a comment using DELETE_COMMENT action in commentReducer', () => {
     const state = {
-      posts: [
-        {
-          title: 'Wednesday Post',
-          body: 'Dear Diary, today is Wednesday.',
-        },
-      ],
+      comments: [commentDummy],
     };
 
-    const action = deletePost('Wednesday Post');
+    const action = deleteComment(commentDummy.commentId);
 
-    const newState = postReducer(state, action);
+    const newState = commentReducer(state, action);
 
     expect(newState).toEqual({
-      posts: [],
+      comments: [],
     });
   });
 });

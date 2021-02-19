@@ -1,6 +1,3 @@
 export const getPosts = (state) => state.posts.posts;
-export const countPosts = (state) =>
-  getPosts(state).map((blog) => ({
-    title: blog.title,
-    comments: blog.comment,
-  }));
+export const getPostId = (state) => state.posts.postId;
+export const countPosts = (state) => getPosts(state).length;

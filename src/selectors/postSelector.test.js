@@ -1,31 +1,31 @@
-import { getPosts } from './postSelectors';
+import { getPosts, countPosts } from './postSelectors';
+
+const dummyPost = {
+  postId: 1,
+  title: 'title Post',
+  body: 'body',
+};
 
 describe('Blog Selectors', () => {
-  it('Selects all posts a post selector', () => {
+  it('Selects all posts ', () => {
     const state = {
-      posts: [
-        {
-          title: 'Wednesday Post',
-          body: 'Dear Diary, today is Wednesday.',
-        },
-        {
-          title: 'Tuesday Post',
-          body: 'Dear Diary, yesterday was Tuesday.',
-        },
-      ],
+      posts: {
+        posts: [dummyPost],
+      },
     };
 
     const posts = getPosts(state);
 
-    expect(posts).toEqual([
-      {
-        title: 'Wednesday Post',
-        body: 'Dear Diary, today is Wednesday.',
+    expect(posts).toEqual([dummyPost]);
+  });
+
+  it('Counts posts by Id from state', () => {
+    const state = {
+      posts: {
+        posts: [dummyPost],
       },
-      {
-        title: 'Tuesday Post',
-        body: 'Dear Diary, yesterday was Tuesday.',
-      },
-    ]);
+    };
+
+    expect(countPosts(state)).toEqual(1);
   });
 });

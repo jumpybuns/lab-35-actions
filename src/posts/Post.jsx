@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deletePost } from '../actions/postActions';
+import { Link } from 'react-router-dom';
 
-const Post = ({ title, body }) => {
+const Post = ({ title, body, postId }) => {
   const dispatch = useDispatch();
 
   const handleClick = (e) => {
@@ -11,11 +12,16 @@ const Post = ({ title, body }) => {
 
     dispatch(deletePost(title));
   };
+
   return (
     <>
-      <h1>{title}</h1>
-      <h2>{body}</h2>
-      <button onClick={handleClick}>Delete</button>
+      <dl>
+        <Link to={`/post/${postId}`}>
+          <dt>{title}</dt>
+          <dd>{body}</dd>
+        </Link>
+        <button onClick={handleClick}>Delete</button>
+      </dl>
     </>
   );
 };
@@ -23,6 +29,8 @@ const Post = ({ title, body }) => {
 Post.propTypes = {
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
+
+  postId: PropTypes.number.isRequired,
 };
 
 export default Post;

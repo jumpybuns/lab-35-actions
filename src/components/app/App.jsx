@@ -1,14 +1,26 @@
 import React from 'react';
-import PostList from '../../posts/PostList';
-import PostForm from '../../forms/PostForm';
+import CommentPage from '../../pages/CommentPage';
+import PostPage from '../../pages/PostPage';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Header from '../../header/Header';
 
-function App() {
+export default function App() {
   return (
     <>
-      <PostForm />
-      <PostList />
+      <Router>
+        <Header />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={(routerProps) => <PostPage {...routerProps} />}
+          />
+          <Route
+            path="/post/:id"
+            render={(routerProps) => <CommentPage {...routerProps} />}
+          />
+        </Switch>
+      </Router>
     </>
   );
 }
-
-export default App;

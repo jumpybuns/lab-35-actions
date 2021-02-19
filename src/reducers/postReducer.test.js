@@ -1,57 +1,36 @@
-import reducer from '.';
-import { createComment, deleteComment } from '../actions/commentActions';
+import postReducer from './postReducer';
+import { createPost, deletePost } from '../actions/postActions';
 
-describe('Comment Reducer', () => {
-  it('Creates a comment using CREATE_COMMENT action in commentReducer', () => {
+const dummyPost = {
+  postId: 1,
+  title: 'title',
+  body: 'body',
+};
+
+describe('Post Reducer', () => {
+  it('Creates a post using CREATE_POST action in postReducer', () => {
     const state = {
-      posts: [
-        {
-          title: 'Thursday',
-          body: 'Today is Thursday',
-        },
-      ],
+      posts: [],
     };
 
-    const action = createComment(0, 'This is my comment');
+    const action = createPost(dummyPost);
 
-    const newState = reducer(state, action);
+    const newState = postReducer(state, action);
 
     expect(newState).toEqual({
-      posts: [
-        {
-          title: 'Thursday',
-          body: 'Today is Thursday',
-        },
-      ],
-      comments: { 0: ['This is my comment'] },
+      posts: [dummyPost],
     });
   });
-
   // eslint-disable-next-line max-len
-  it.only('Deletes a comment using DELETE_COMMENT action in commentReducer', () => {
+  it('Deletes a post using DELETE_POST action in postReducer', () => {
     const state = {
-      posts: [
-        {
-          title: 'Friday',
-          body: 'Tomorrow is Friday',
-        },
-      ],
-      comments: { 0: ['This is my Friday comment'] },
+      posts: [dummyPost],
     };
 
-    const action = deleteComment(0, 0);
-    // { type: 'DELETE_COMMENT', payload: { postIndex: 0, textIndex: 0 } }
+    const action = deletePost(dummyPost.title);
 
-    const newState = reducer(state, action);
+    const newState = postReducer(state, action);
 
-    expect(newState).toEqual({
-      posts: [
-        {
-          title: 'Friday',
-          body: 'Tomorrow is Friday',
-        },
-      ],
-      comments: { 0: [] },
-    });
+    expect(newState).toEqual({ posts: [] });
   });
 });
