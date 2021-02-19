@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { createComment } from '../actions/commentActions';
 import { getCommentId } from '../selectors/commentSelector';
 import { useDispatch, useSelector } from 'react-redux';
@@ -29,6 +30,10 @@ const CommentForm = ({ postId }) => {
       </form>
     </>
   );
+};
+
+CommentForm.propTypes = {
+  postId: PropTypes.number.isRequired,
 };
 
 export default CommentForm;
