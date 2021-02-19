@@ -5,14 +5,8 @@ import { deleteBlog } from '../actions/blogActions';
 import CommentForm from '../forms/CommentForm';
 import { createComment } from '../actions/commentActions';
 
-const Blog = ({ title, body, comments, index }) => {
+const Blog = ({ title, body }) => {
   const dispatch = useDispatch();
-  const [selectedComment, setSelectedComment] = useState('');
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    dispatch(createComment(index, selectedComment));
-  };
 
   const handleClick = (e) => {
     e.preventDefault();
