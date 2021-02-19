@@ -6,8 +6,8 @@ describe('Comment Reducer', () => {
     const state = {
       posts: [
         {
-          title: 'Thursday',
-          body: 'Today is Thursday',
+          title: 'title',
+          body: 'body',
         },
       ],
     };
@@ -19,8 +19,8 @@ describe('Comment Reducer', () => {
     expect(newState).toEqual({
       posts: [
         {
-          title: 'Thursday',
-          body: 'Today is Thursday',
+          title: 'title',
+          body: 'body',
         },
       ],
       comments: { 0: ['This is my comment'] },
@@ -32,8 +32,8 @@ describe('Comment Reducer', () => {
     const state = {
       posts: [
         {
-          title: 'Friday',
-          body: 'Tomorrow is Friday',
+          title: 'title',
+          body: 'body',
         },
       ],
       comments: { 0: ['This is my Friday comment'] },
@@ -47,8 +47,8 @@ describe('Comment Reducer', () => {
     expect(newState).toEqual({
       posts: [
         {
-          title: 'Friday',
-          body: 'Tomorrow is Friday',
+          title: 'title',
+          body: 'body',
         },
       ],
       comments: { 0: [] },

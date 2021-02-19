@@ -15,7 +15,7 @@ export default function App() {
           />
           <Route
             path="/post/:id"
-            render={(routerProps) => <CommentForm {...routerProps} />}
+            render={(routerProps) => <CommentPage {...routerProps} />}
           />
         </Switch>
       </Router>

@@ -8,8 +8,8 @@ describe('Post Reducer', () => {
     };
 
     const action = createPost({
-      title: 'Wednesday Post',
-      body: 'Dear Diary, today is Wednesday.',
+      title: 'title',
+      body: 'body',
     });
 
     const newState = postReducer(state, action);
@@ -17,8 +17,8 @@ describe('Post Reducer', () => {
     expect(newState).toEqual({
       posts: [
         {
-          title: 'Wednesday Post',
-          body: 'Dear Diary, today is Wednesday.',
+          title: 'title',
+          body: 'body',
         },
       ],
     });
@@ -28,8 +28,8 @@ describe('Post Reducer', () => {
     const state = {
       posts: [
         {
-          title: 'Wednesday Post',
-          body: 'Dear Diary, today is Wednesday.',
+          title: 'title',
+          body: 'body',
         },
       ],
     };

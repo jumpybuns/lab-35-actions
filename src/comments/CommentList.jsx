@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { getComments } from '../selectors/commentSelector';
 import Comment from './Comment';
@@ -17,6 +18,10 @@ const CommentList = ({ postId }) => {
   ));
 
   return <ul data-testid="comments">{commentElements}</ul>;
+};
+
+CommentList.propTypes = {
+  postId: PropTypes.number.isRequired,
 };
 
 export default CommentList;
