@@ -1,12 +1,12 @@
 import React from 'react';
-import BlogList from '../../blogs/BlogList';
-import BlogForm from '../../forms/BlogForm';
+import PostList from '../../posts/PostList';
+import PostForm from '../../forms/PostForm';
 
 function App() {
   return (
     <>
-      <BlogForm />
-      <BlogList />
+      <PostForm />
+      <PostList />
     </>
   );
 }

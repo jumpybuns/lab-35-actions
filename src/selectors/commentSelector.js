@@ -1,10 +1,10 @@
-import { getBlogs } from './blogSelectors';
+import { getPosts } from './postSelectors';
 
 export const getComments = (state) => state.comments.commentsList;
 export const countComments = (state) => {
-  const blogs = getBlogs(state);
+  const posts = getPosts(state);
   const comments = getComments(state);
 
-  return comments.filter((comment, i) => blogs[i]?.correctComment === comment)
+  return comments.filter((comment, i) => posts[i]?.correctComment === comment)
     .length;
 };

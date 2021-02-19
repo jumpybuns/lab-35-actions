@@ -1,30 +1,45 @@
-import { setComment, deleteComment } from '../actions/commentActions';
-import reducer from '../reducers/commentReducer';
+import { createPost, deletePost } from '../actions/postActions';
+import postReducer from './postReducer';
 
-describe('comment reducer test', () => {
-  it('add a comment with SET_COMMENT', () => {
+describe('Post Reducer', () => {
+  it('Creates a post using CREATE_POST action in postReducer', () => {
     const state = {
-      blogs: Array(10).fill(null),
+      posts: [],
     };
 
-    const action = setComment(4, 'comment');
+    const action = createPost({
+      title: 'Wednesday Post',
+      body: 'Dear Diary, today is Wednesday.',
+    });
 
-    const newState = reducer(state, action);
+    const newState = postReducer(state, action);
 
     expect(newState).toEqual({
-      blogs: [null, null, null, null, 'comment', null, null, null, null, null],
+      posts: [
+        {
+          title: 'Wednesday Post',
+          body: 'Dear Diary, today is Wednesday.',
+        },
+      ],
     });
   });
 
-  it('delete a comment with DELETE_COMMENT', () => {
+  it('Deletes a post using DELETE_POST action in postReducer', () => {
     const state = {
-      blogs: Array(10).fill(null),
+      posts: [
+        {
+          title: 'Wednesday Post',
+          body: 'Dear Diary, today is Wednesday.',
+        },
+      ],
     };
 
-    const action = deleteComment('comment');
+    const action = deletePost('Wednesday Post');
 
-    expect(reducer(state, action)).toEqual({
-      blogs: [null, null, null, null, null, null, null, null, null, null],
+    const newState = postReducer(state, action);
+
+    expect(newState).toEqual({
+      posts: [],
     });
   });
 });
