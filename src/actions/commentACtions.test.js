@@ -1,17 +1,17 @@
 import {
-  setComment,
-  SET_COMMENT,
+  createComment,
+  CREATE_COMMENT,
   deleteComment,
   DELETE_COMMENT,
 } from './commentActions';
 
 describe('comment actions', () => {
-  it('creates a comment using SET_COMMENT', () => {
-    const action = setComment(0, 'comment');
+  it('creates a comment using CREATE_COMMENT', () => {
+    const action = createComment(0, 'comment');
 
     expect(action).toEqual({
-      type: SET_COMMENT,
-      payload: { index: 0, comment: 'comment' },
+      type: CREATE_COMMENT,
+      payload: { postIndex: 0, commentText: 'comment' },
     });
   });
 
@@ -20,7 +20,7 @@ describe('comment actions', () => {
 
     expect(action).toEqual({
       type: DELETE_COMMENT,
-      payload: { index: 0, comment: 'comment' },
+      payload: { postIndex: 0, commentText: 'comment' },
     });
   });
 });

@@ -2,7 +2,6 @@
 import { CREATE_COMMENT, DELETE_COMMENT } from '../actions/commentActions';
 
 export default function commentReducer(state = {}, action) {
-  console.log('PAYLOAD', action.payload);
   switch (action.type) {
     case CREATE_COMMENT:
       return {

@@ -1,13 +1,13 @@
 import {
-  createBlog,
+  createPost,
   CREATE_POST,
   deletePost,
   DELETE_POST,
 } from './postActions';
 
-describe('blog action jacksons', () => {
-  it('creates a new blog post', () => {
-    const action = createBlog({
+describe('post blog action jacksons', () => {
+  it('creates a new post blog', () => {
+    const action = createPost({
       title: 'title',
       body: 'body',
     });
@@ -18,7 +18,7 @@ describe('blog action jacksons', () => {
     });
   });
 
-  it('deletes a blog post', () => {
+  it('deletes a post blog', () => {
     const action2 = deletePost({
       title: 'title',
       body: 'body',
